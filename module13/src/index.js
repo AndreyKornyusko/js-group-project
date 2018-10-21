@@ -1,12 +1,27 @@
-// import Model from './js/model';
-// import View from './js/view';
-// import Controller from './js/controller';
-// import styles from './sass/styles.scss';
+import Model from './js/model';
+import View from './js/view';
+import Controller from './js/controller';
+import styles from './sass/styles.scss';
 
 
-// const view = new View();
+const view = new View();
 
-// const model = new Model();
+const model = new Model();
 
-// new Controller(view, model);
+new Controller(view, model);
 
+
+
+
+
+
+
+
+
+
+
+
+
+// import greet from './greet';
+// import './sass/styles.scss';
+// greet('Webpack is awesome!');

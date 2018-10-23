@@ -7,21 +7,26 @@
   <title>Document</title>
 </head>
 <body>
-  <div class="wrapper">
-
-    <button class="selected">Избранное</button>
-    <form class="form js-form">
-      <input type="text" name="query" placeholder="Введите поисковый запрос">
-      <button type="button" data-action="search">Поиск</button>
+  <header class="page-header">
+  <a href="" class="site-logo"></a>
+    <button class="btn--selected">Избранное</button>
+    <form class="page-header__form js-form">
+      <input class="page-header__input" type="text" name="query" placeholder="Введите поисковый запрос">
+      <button class ="btn btn--search" type="button" data-action="search">Поиск</button>
     </form>
-
-    <ul class="img-list" id="root"> 
+  </header>
+<section class="img-section">
+    <ul class="img-section__list" id="root"> 
       <template id="js_markup">
       <li class="img-card" data-id="{{id}}">
         <img src="{{image}}" alt="{{description}}">
-        <button type="button" data-action="delete">	&#215;</button>
+        <button class ="btn btn--delete" type="button" data-action="delete">	&#215;</button>
       </li>
     </template>
     </ul>
+  </section>
+  <footer class="page-footer">
+    <button class="btn btn-show-more" type="button" data-action="post">Показать еще</button>
+  </footer>
 </body>
 </html>

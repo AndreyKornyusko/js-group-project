@@ -8,6 +8,7 @@ export default class View {
     this.refs.form = document.querySelector('.js-form');
     this.refs.input = document.querySelector('input[name=query]');
     this.refs.searchBtn = document.querySelector('button[data-action=search]');
+    this.refs.ShowMoreBtn = document.querySelector('button[data-action=show]');
     this.refs.list = document.querySelector('.list__img-card');
     this.refs.images = document.querySelectorAll('.list__img-card');
     this.refs.container = document.querySelector('#root');
@@ -16,6 +17,6 @@ export default class View {
   createTemplate(arr) {
     const markup = arr.reduce((acc, item) => acc + card(item), '');
 
-    this.refs.container.insertAdjacentHTML('afterbegin', markup);
+    this.refs.container.insertAdjacentHTML('beforeend', markup);
   }
 }

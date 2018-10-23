@@ -98,6 +98,7 @@
   border-radius: 15px;
   padding: 7px 17px;
   color: #fff;
+  cursor: pointer;
 }
 
 .list {
@@ -109,6 +110,7 @@
   max-width: 860px;
   height: 400px;
   width: 78%;
+  list-style: none;
   justify-self: center;
 
 	@include respond-to(handhelds) {
@@ -129,18 +131,28 @@
   	}
 }
 
-.button.more {
+.button.visible {
+	display: block;
+}
+
+button.more {
 	display: none;
 	width: 20%;
 	justify-self: center;
 	margin-bottom: 20px;
 }
 
-.button.visible {
-	display: block;
+.list__img-card {
+  background: teal;
+  height: 122px;
+  width: 205px;
+  
 }
 
-li {
-  background: teal;
+.list__preview-img {
+  display: block;
+  width: 100%;
+  height: 122px;
+  object-fit: cover;
 }
 

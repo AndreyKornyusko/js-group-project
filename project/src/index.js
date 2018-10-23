@@ -9,3 +9,4 @@ const view = new View();
 const model = new Model();
 
 new Controller(view, model);
+

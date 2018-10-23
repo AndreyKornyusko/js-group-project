@@ -8,4 +8,6 @@ export const queryImages =((query, page) => {
 	.then(response => response)
 	.then(obj => obj.data.hits) 
 	.catch(error => console.log(error))
+
 });
+

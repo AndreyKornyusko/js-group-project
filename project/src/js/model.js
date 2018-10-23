@@ -1,3 +1,4 @@
+
 import { queryImages } from './services/pixabayApi.js';
 import { LOCALSTORAGE } from './services/localStorage.js';
 
@@ -19,7 +20,8 @@ export default class Model {
     return queryImages(query, page)
     .then(data => {
     	this._items = data;
-    	console.log(data)
+
+    	console.log('data',data)
     	return data;
     })
   }

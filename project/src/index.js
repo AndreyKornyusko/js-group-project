@@ -1,7 +1,7 @@
 import Model from './js/model';
 import View from './js/view';
 import Controller from './js/controller';
-import styles from './sass/styles.scss';
+import styles from './sass/main.scss';
 
 
 const view = new View();

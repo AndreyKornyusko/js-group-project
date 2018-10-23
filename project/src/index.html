@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>FindPic</title>
 </head>
 <body>
-  <header class="page-header">
-  <a href="" class="site-logo"></a>
-    <button class="btn--selected">Избранное</button>
-    <form class="page-header__form js-form">
-      <input class="page-header__input" type="text" name="query" placeholder="Введите поисковый запрос">
-      <button class ="btn btn--search" type="button" data-action="search">Поиск</button>
-    </form>
-  </header>
-<section class="img-section">
-    <ul class="img-section__list" id="root"> 
-      <template id="js_markup">
-      <li class="img-card" data-id="{{id}}">
-        <img src="{{image}}" alt="{{description}}">
-        <button class ="btn btn--delete" type="button" data-action="delete">	&#215;</button>
-      </li>
-    </template>
-    </ul>
-  </section>
-  <footer class="page-footer">
-    <button class="btn btn-show-more" type="button" data-action="post">Показать еще</button>
-  </footer>
+ <div class="wrapper">
+   <header class="header">
+     <div class="selected">
+       <div class="selected__svg-wrap">
+         <svg class="selected__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14px" height="14px">
+           <image x="0px" y="0px" width="14px" height="14px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAb1BMVEVnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrf////+FD+DAAAAI3RSTlMAU80Xi4wKKPX2ctzd8nNeMvEY0X7LDq/+D1foW1pYMYcUFRlzl0oAAAABYktHRCS0BvmZAAAAB3RJTUUH4goXDCM2aC98MgAAAGxJREFUCNdNzOkSgjAQA+BQsFUOKTcKyJH3f0doV53mz+ab2QngE0UIo1SomIwDJuTtD23u5MNo19MsL+hT5NkTJYOUgK1+qKx7rxtRU8tUK2y/y52wE/VXHQZyfHm+Oc3AMvHjuW67O8e2AiegbwtF/sgb7gAAAABJRU5ErkJggg=="
+           />
+         </svg>
+       </div>
+       <span class="selected__button">Избранное</span>
+     </div>
+     <div class="logo">
+       <img src="#" alt="" class="logo__img">
+     </div>
+   </header>
+   <main>
+     <form class="form js-form">
+       <input class="form__input" type="text" name="query" placeholder="Введите поисковый запрос">
+       <button class="form__button" type="button" data-action="search">Поиск</button>
+     </form>
+
+     <ul class="list" id="root">
+
+     </ul>
+ </div>
+ </main>
+
+
 </body>
+
 </html>

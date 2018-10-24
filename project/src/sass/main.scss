@@ -5,6 +5,8 @@
   font-family: 'Roboto', sans-serif;
 }
 
+@import 'slider';
+
 @mixin respond-to($media) {
   @if $media == handhelds {
     @media only screen and (min-width: 320px) and (max-width:548px) { @content; }
@@ -112,6 +114,7 @@
   width: 78%;
   list-style: none;
   justify-self: center;
+  margin-bottom: 25px;
 
 	@include respond-to(handhelds) {
 			grid-template-columns: repeat(auto-fit, minmax(250px, 320px));
@@ -146,7 +149,7 @@ button.more {
   background: teal;
   height: 122px;
   width: 205px;
-  
+  cursor: pointer;
 }
 
 .list__preview-img {

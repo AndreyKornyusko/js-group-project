@@ -6,6 +6,7 @@ export default class Model {
   constructor(items = []) {
     this._items = items;
     this._selecteds = LOCALSTORAGE.get('selected') ? LOCALSTORAGE.get('selected') : [];
+    this._allItems  = []
   }
 
   get items() {
@@ -16,12 +17,19 @@ export default class Model {
   	return this._selecteds;
   }
 
+  get allItems() {
+    return this._allItems;
+  }
+
   getImages({ query = '', page = 1 }) {
     return queryImages(query, page)
     .then(data => {
     	this._items = data;
-
+      
+      data.forEach(obj => this._allItems.push(obj));
+      console.log("ALL ITEMS:", this._allItems)
     	console.log('data',data)
+      
     	return data;
     })
   }

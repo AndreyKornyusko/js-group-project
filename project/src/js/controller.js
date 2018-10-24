@@ -6,6 +6,8 @@ export default class Controller {
       'click',
       this.onClickSearch.bind(this),
     );
+    this._view.refs.selectedBtn.addEventListener('click',
+    this.onClickShowSelected.bind(this))
   }
 
   onClickSearch(evt) {
@@ -27,7 +29,5 @@ export default class Controller {
       this._view.refs.form.reset();
     });;
   }
-
-
 
 }

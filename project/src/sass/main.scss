@@ -144,3 +144,9 @@ li {
   background: teal;
 }
 
+.selected__title{
+  display: none;
+}
+.selected__title.visible{
+  display: inline-block;
+}

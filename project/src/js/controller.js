@@ -26,8 +26,6 @@ export default class Controller {
       this.onClickShowSlider.bind(this),
     );
 
-    // this.slide();
-
     this._view.refs.prew.addEventListener('click', this.onclickPrew.bind(this));
 
     this._view.refs.next.addEventListener('click', this.onclickNext.bind(this));
@@ -92,6 +90,7 @@ export default class Controller {
       console.log('data controller', data);
       this._view.createTemplate(data);
       this._view.refs.form.reset();
+      console.log('this._model._items', this._model._items);
     });
   }
 

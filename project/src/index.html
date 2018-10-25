@@ -9,7 +9,7 @@
   <title>FindPic</title>
 </head>
 
-<body class="page">
+<body >
   <div class="wrapper">
     <header class="header">
       <div class="selected">
@@ -35,46 +35,49 @@
       <button class="button more" data-action="show">Показать еще</button>
     </main>
 
-    <div class="backdrop ">
-      <div class="slider">
-        <ul class="slider__list" id="slider">
-          <!-- <li class="slider__list-item  active">
-            <img class="slider__img" src="#">
-          </li> -->
-        </ul>
+    <div class="slider-wrapper page">
+      <div class="backdrop ">
+        <div class="slider">
+          <ul class="slider__list" id="slider">
+            <!-- <li class="slider__list-item  active">
+              <img class="slider__img" src="#">
+            </li> -->
+          </ul>
 
-        <div class="slider__tools">
-          <div class="slider__arrows">
-            <div class="slider__arrow prew">
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="6px" height="10px">
-                <image x="0px" y="0px" width="6px" height="10px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAKCAQAAAA9B+e4AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiChUSMi6UK4GFAAAAV0lEQVQI10XNOw5AUAAF0SHyYgkKUSqsx25sSauTaBR2oJZIdGrdKJ7PnepUN5FnLVXy4WB4sZHSZADsQAkpBQsnJQB2KjEM9l6GCMRJzV/gqNb/z8x6A0RvKmC1iDyeAAAAAElFTkSuQmCC"
+          <div class="slider__tools">
+            <div class="slider__arrows">
+              <div class="slider__arrow prew">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="6px" height="10px">
+                  <image x="0px" y="0px" width="6px" height="10px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAKCAQAAAA9B+e4AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiChUSMi6UK4GFAAAAV0lEQVQI10XNOw5AUAAF0SHyYgkKUSqsx25sSauTaBR2oJZIdGrdKJ7PnepUN5FnLVXy4WB4sZHSZADsQAkpBQsnJQB2KjEM9l6GCMRJzV/gqNb/z8x6A0RvKmC1iDyeAAAAAElFTkSuQmCC"
+                  />
+                </svg>
+              </div>
+              <div class="slider__arrow next">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="6px" height="10px">
+                  <image x="0px" y="0px" width="6px" height="10px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAKCAQAAAA9B+e4AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiChUSMyEdj61VAAAAWElEQVQI1zXMsQ3CUBRDUaehS9iALhIjRKlhKmo6WrZIwwCZI0vABhGH4vHtxle2HLOblOOCsUE8G9bggXODuNtNnfz1zdaaxcep4gtHiYMVQ71dvfU1/gHma0ZmZViATgAAAABJRU5ErkJggg=="
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div class="slider__star">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="11px" height="11px">
+                <image x="0px" y="0px" width="11px" height="11px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAMAAACecocUAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAb1BMVEXN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3Dn///+W0WsQAAAAI3RSTlMATB37KIaSCxY29Po5DFFaEaatE3iBH3PefNX3VE3zXTgzYJx5zNUAAAABYktHRCS0BvmZAAAAB3RJTUUH4goVEjAv0RrTkQAAAFBJREFUCNc9y0cWgDAMQ0HRQ+8QetH970gw5S/8ZiEDdxb+bMf97dF/EKgwYpyoFMj4laMoX1a1GTXCVh6UuBP3pCYH8TjNWFYt3nZzjhO4AG9MBty2KYxiAAAAAElFTkSuQmCC"
                 />
               </svg>
             </div>
-            <div class="slider__arrow next">
-              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="6px" height="10px">
-                <image x="0px" y="0px" width="6px" height="10px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAKCAQAAAA9B+e4AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiChUSMyEdj61VAAAAWElEQVQI1zXMsQ3CUBRDUaehS9iALhIjRKlhKmo6WrZIwwCZI0vABhGH4vHtxle2HLOblOOCsUE8G9bggXODuNtNnfz1zdaaxcep4gtHiYMVQ71dvfU1/gHma0ZmZViATgAAAABJRU5ErkJggg=="
+            <div class="slider__del">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10px" height="10px">
+                <image x="0px" y="0px" width="10px" height="10px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiChUSNBbqc56dAAAAgElEQVQI11WOOwrCUBQF54GNYBULOwu34S5cRTajVbC2dBcuIDaCJr2d4BciSpqxeI+o9zSH4TDcYM6dNd+bMcSlL/nJwwUOLH126OLefqzbtL5ZiQSjaUNLS8YU6CAIhFh7CR1Z8ebEKA3Es4fkbkRw4jXqRSxtHGNh/ffnzvkH/fhc37F++GIAAAAASUVORK5CYII="
                 />
               </svg>
             </div>
           </div>
 
-          <div class="slider__star">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="11px" height="11px">
-              <image x="0px" y="0px" width="11px" height="11px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAMAAACecocUAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAb1BMVEXN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3Dn///+W0WsQAAAAI3RSTlMATB37KIaSCxY29Po5DFFaEaatE3iBH3PefNX3VE3zXTgzYJx5zNUAAAABYktHRCS0BvmZAAAAB3RJTUUH4goVEjAv0RrTkQAAAFBJREFUCNc9y0cWgDAMQ0HRQ+8QetH970gw5S/8ZiEDdxb+bMf97dF/EKgwYpyoFMj4laMoX1a1GTXCVh6UuBP3pCYH8TjNWFYt3nZzjhO4AG9MBty2KYxiAAAAAElFTkSuQmCC"
-              />
-            </svg>
-          </div>
-          <div class="slider__del">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10px" height="10px">
-              <image x="0px" y="0px" width="10px" height="10px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiChUSNBbqc56dAAAAgElEQVQI11WOOwrCUBQF54GNYBULOwu34S5cRTajVbC2dBcuIDaCJr2d4BciSpqxeI+o9zSH4TDcYM6dNd+bMcSlL/nJwwUOLH126OLefqzbtL5ZiQSjaUNLS8YU6CAIhFh7CR1Z8ebEKA3Es4fkbkRw4jXqRSxtHGNh/ffnzvkH/fhc37F++GIAAAAASUVORK5CYII="
-              />
-            </svg>
-          </div>
         </div>
-
       </div>
     </div>
+
 
 
 

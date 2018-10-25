@@ -129,9 +129,10 @@ export default class Controller {
    
     console.log('slider open');
     this._view.createSliderTemplate(this._model.allItems);
-    this.viewFirstSlideAfterClick(target);
+
+    this.viewFirstSlideAfterClick(target)
+
     this._view.refs.page.classList.add('show-slider');
   }
 }
 
-// created by Dima

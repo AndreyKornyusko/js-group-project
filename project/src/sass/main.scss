@@ -148,10 +148,21 @@
 }
 
 .list__img-card {
+  position: relative;
   background-color: #231f20;
   height: 122px;
   width: 205px;
   cursor: pointer;
+}
+
+.list__delButton {
+position: absolute;
+width: 15px;
+height: 15px;
+top: 0;
+right: 0;
+background-color: #231f20;
+border:none;
 }
 
 .list__preview-img {

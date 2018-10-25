@@ -79,7 +79,12 @@
   z-index: 1000;
 }
 
+.slider__list-item.active {
+  display: block;
+}
+
 .slider__list-item {
+  display: none;
   position: absolute;
   width: 100%;
   height: 100%;

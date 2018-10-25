@@ -2,6 +2,7 @@ export default class Controller {
   constructor(view, model) {
     this._view = view;
     this._model = model;
+
     this.request = {
       page: 1,
       query: '',
@@ -12,6 +13,9 @@ export default class Controller {
         this.page += 1;
       },
     };
+
+    this._model.getLocalStorage();
+    
     this._view.refs.searchBtn.addEventListener(
       'click',
       this.onClickSearch.bind(this),
@@ -25,44 +29,58 @@ export default class Controller {
       'click',
       this.onClickShowSlider.bind(this),
     );
+    this._view.refs.selectedBtn.addEventListener('click',
+      this.onClickShowSelectedImage.bind(this),
+    );
 
     // this.slide();
 
     this._view.refs.prew.addEventListener('click', this.onclickPrew.bind(this));
 
     this._view.refs.next.addEventListener('click', this.onclickNext.bind(this));
+
+    this._view.refs.select.addEventListener(
+      'click',
+      this.onClickAddToSelected.bind(this),
+    );
+
+    this._view.refs.delSlider.addEventListener(
+      'click',
+      this.onclickDelSlider.bind(this),
+    );
   }
 
   slide() {
     const slides = document.querySelectorAll('.slider__list-item');
-
-    // for (let i = 0; i < slides.length; i++) {
-    //   slides[i].style.zIndex = slides.length - i;
-    // }
-
     slides.forEach((slide, i) => {
       slide.style.zIndex = slide.length - i;
-    })
+    });
   }
 
   viewFirstSlideAfterClick(target) {
     const slides = document.querySelectorAll('.slider__list-item');
     const listItem = target.closest('.list__img-card');
     const imgId = listItem.dataset.id;
-   
-    // for (let i = 0; i < slides.length; i++) {
-    //   if(imgId === slides[i].dataset.id) {
-    //     slides[i].classList.add('active')
-    //   }
-    //  }
-
     slides.forEach((slide, i) => {
-      if(imgId === slide.dataset.id) {
+      if (imgId === slide.dataset.id) {
         slide.classList.add('active');
       }
-    })
+    });
   }
-  
+
+  findActiveSlide() {
+    const activElem = document.querySelector('.active');
+
+    const id = Number(activElem.dataset.id);
+    const previewURL = activElem.firstElementChild.dataset.preview;
+    const largeImageURL = activElem.firstElementChild.getAttribute('src');
+    const selectedItem = {
+      id: id,
+      previewURL: previewURL,
+      largeImageURL: largeImageURL,
+    };
+    return selectedItem;
+  }
 
   onclickNext(evt) {
     this.slide();
@@ -79,7 +97,7 @@ export default class Controller {
     this.slide();
     console.log('prew');
     const activeEl = document.querySelector('.active');
-    console.log(activeEl)
+    console.log(activeEl);
     if (activeEl.previousElementSibling) {
       activeEl.previousElementSibling.style.left = '0%';
       activeEl.classList.remove('active');
@@ -110,7 +128,6 @@ export default class Controller {
     evt.preventDefault();
     this.request.incrementPage();
     this._model.getImages(this.request).then(data => {
-      console.log('data controller', data);
       this._view.createTemplate(data);
       this._view.refs.form.reset();
     });
@@ -125,14 +142,29 @@ export default class Controller {
 
     if (nodeName !== 'IMG') return;
 
-    console.log(fullview)
-   
-    console.log('slider open');
+    console.log(fullview);
+
     this._view.createSliderTemplate(this._model.allItems);
-
-    this.viewFirstSlideAfterClick(target)
-
+    this.viewFirstSlideAfterClick(target);
     this._view.refs.page.classList.add('show-slider');
   }
-}
 
+  onClickAddToSelected(evt) {
+    const selectArrItem = this.findActiveSlide();
+    this._model._selectid.push(selectArrItem);
+    console.log('this._model._selectid', this._model._selectid);
+    this._model.setLocalStorage();
+  }
+
+  onClickShowSelectedImage() {
+    this._view.clearPage();
+    this._view.deleteSlide();
+    this._view.refs.ShowMoreBtn.classList.remove('visible');
+    this._view.createTemplateFromSelected(this._model._selectid);
+  }
+
+  onclickDelSlider() {
+    this._view.deleteSlide();
+  }
+
+}

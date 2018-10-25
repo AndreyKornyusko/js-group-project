@@ -48,6 +48,7 @@
   max-width: 115px;
   min-width: 105px;
   @extend .flex-row;
+  cursor: pointer;
 }
 
 .main {
@@ -147,7 +148,7 @@
 }
 
 .list__img-card {
-  background: teal;
+  background-color: #231f20;
   height: 122px;
   width: 205px;
   cursor: pointer;

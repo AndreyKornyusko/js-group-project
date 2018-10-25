@@ -14,8 +14,8 @@ export default class Controller {
       },
     };
 
-    this._model.getLocalStorage();
-    
+    // this._model.getLocalStorage();
+
     this._view.refs.searchBtn.addEventListener(
       'click',
       this.onClickSearch.bind(this),
@@ -29,7 +29,8 @@ export default class Controller {
       'click',
       this.onClickShowSlider.bind(this),
     );
-    this._view.refs.selectedBtn.addEventListener('click',
+    this._view.refs.selectedBtn.addEventListener(
+      'click',
       this.onClickShowSelectedImage.bind(this),
     );
 
@@ -47,6 +48,11 @@ export default class Controller {
     this._view.refs.delSlider.addEventListener(
       'click',
       this.onclickDelSlider.bind(this),
+    );
+
+    this._view.refs.delSelectedBtn.addEventListener(
+      'click',
+      onClickDelImageFromSelected.bind(this),
     );
   }
 
@@ -135,7 +141,6 @@ export default class Controller {
 
   onClickShowSlider(event) {
     event.preventDefault();
-    console.log('event', event);
     const target = event.target;
     const nodeName = target.nodeName;
     const fullview = target.dataset.fullview;
@@ -151,20 +156,35 @@ export default class Controller {
 
   onClickAddToSelected(evt) {
     const selectArrItem = this.findActiveSlide();
-    this._model._selectid.push(selectArrItem);
-    console.log('this._model._selectid', this._model._selectid);
-    this._model.setLocalStorage();
+    this._model.addToSelected(selectArrItem)
   }
 
   onClickShowSelectedImage() {
     this._view.clearPage();
     this._view.deleteSlide();
     this._view.refs.ShowMoreBtn.classList.remove('visible');
-    this._view.createTemplateFromSelected(this._model._selectid);
+    this._view.createTemplateFromSelected(this._model._selecteds);
   }
 
   onclickDelSlider() {
     this._view.deleteSlide();
   }
 
+  onClickDelImageFromSelected(evt) {
+    const target = evt.target;
+    event.preventDefault();
+    const action = target.dataset.action;
+    if(target.nodeName !=='BUTTON'|| action !== 'del') return;
+
+    console.log('click on delimage');
+
+    const listItem = target.closest('.list__img-card');
+    const imgId = Number(listItem.dataset.id);
+
+    console.log('listItem',listItem);
+    console.log('imgId',imgId);
+
+    this._model.deleteFromSelected(imgId);
+    this._view.createTemplateFromSelected(this._model._selecteds);
+  }
 }

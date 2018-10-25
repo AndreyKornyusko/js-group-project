@@ -35,14 +35,34 @@ export default class Controller {
 
   slide() {
     const slides = document.querySelectorAll('.slider__list-item');
-    // for (let i = 0; i < this._view.refs.slides.length; i++) {
-    //   this._view.refs.slides[i].style.zIndex =
-    //     this._view.refs.slides.length - i;
+
+    // for (let i = 0; i < slides.length; i++) {
+    //   slides[i].style.zIndex = slides.length - i;
     // }
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.zIndex = slides.length - i;
-    }
+
+    slides.forEach((slide, i) => {
+      slide.style.zIndex = slide.length - i;
+    })
   }
+
+  viewFirstSlideAfterClick(target) {
+    const slides = document.querySelectorAll('.slider__list-item');
+    const listItem = target.closest('.list__img-card');
+    const imgId = listItem.dataset.id;
+   
+    // for (let i = 0; i < slides.length; i++) {
+    //   if(imgId === slides[i].dataset.id) {
+    //     slides[i].classList.add('active')
+    //   }
+    //  }
+
+    slides.forEach((slide, i) => {
+      if(imgId === slide.dataset.id) {
+        slide.classList.add('active');
+      }
+    })
+  }
+  
 
   onclickNext(evt) {
     this.slide();
@@ -59,6 +79,7 @@ export default class Controller {
     this.slide();
     console.log('prew');
     const activeEl = document.querySelector('.active');
+    console.log(activeEl)
     if (activeEl.previousElementSibling) {
       activeEl.previousElementSibling.style.left = '0%';
       activeEl.classList.remove('active');
@@ -100,9 +121,15 @@ export default class Controller {
     console.log('event', event);
     const target = event.target;
     const nodeName = target.nodeName;
+    const fullview = target.dataset.fullview;
+
     if (nodeName !== 'IMG') return;
-    this._view.refs.page.classList.add('show-slider');
+
+    console.log(fullview)
+   
     console.log('slider open');
-    this._view.createSliderTemplate(this._model._items);
+    this._view.createSliderTemplate(this._model.allItems);
+    this.viewFirstSlideAfterClick(target);
+    this._view.refs.page.classList.add('show-slider');
   }
 }

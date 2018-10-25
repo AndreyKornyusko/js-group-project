@@ -32,4 +32,5 @@ export default class View {
 
     this.refs.sliderContainer.insertAdjacentHTML('beforeend', markup);
   }
+
 }

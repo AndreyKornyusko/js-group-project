@@ -78,6 +78,9 @@
   list-style: none;
   z-index: 1000;
 }
+.slider__list-item.active {
+  display: block;
+}
 
 .slider__list-item.active {
   display: block;
@@ -90,7 +93,10 @@
   height: 100%;
   /* transition: all 1s ease-in 0.1s; */
   left: 0;
+
   background-color: #000;
+
+
 }
 
 .slider__img {

@@ -133,3 +133,5 @@ export default class Controller {
     this._view.refs.page.classList.add('show-slider');
   }
 }
+
+// created by Dima

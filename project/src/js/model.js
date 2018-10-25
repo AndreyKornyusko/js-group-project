@@ -6,7 +6,8 @@ export default class Model {
   constructor(items = []) {
     this._items = items;
     this._selecteds = LOCALSTORAGE.get('selected') ? LOCALSTORAGE.get('selected') : [];
-    this._allItems  = []
+    this._allItems  = [];
+    this._selectid  = []
   }
 
   get items() {
@@ -53,5 +54,16 @@ export default class Model {
   clearSelecteds() {
   	LOCALSTORAGE.clear();
   	this._selecteds = [];
+  }
+
+  setLocalStorage() {
+    localStorage.setItem('images', JSON.stringify(this._selectid));
+  }
+
+  getLocalStorage() {
+    const linksFromLs = JSON.parse(localStorage.getItem('images'));
+    if (linksFromLs !== null) {
+      this._selectid = linksFromLs;
+    }
   }
 }

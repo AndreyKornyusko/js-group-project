@@ -1,12 +1,13 @@
 import card from '../templates/cards.hbs';
 import mcard from '../templates/mcard.hbs';
+import selectcard from '../templates/selectcard.hbs';
 
 export default class View {
   constructor() {
     this.refs = {};
 
     this.refs.page = document.querySelector('.page');
-    this.refs.selectedBtn = document.querySelector('.selected-btn');
+    this.refs.selectedBtn = document.querySelector('.selected');
     this.refs.form = document.querySelector('.js-form');
     this.refs.input = document.querySelector('input[name=query]');
     this.refs.searchBtn = document.querySelector('button[data-action=search]');
@@ -19,6 +20,8 @@ export default class View {
     this.refs.prew = document.querySelector('.prew');
     this.refs.next = document.querySelector('.next');
     this.refs.slides = document.querySelectorAll('.slider__list-item');
+    this.refs.select = document.querySelector('.slider__star');
+    this.refs.delSlider = document.querySelector('.slider__del');
   }
 
   createTemplate(arr) {
@@ -31,5 +34,20 @@ export default class View {
     const markup = arr.reduce((acc, item) => acc + mcard(item), '');
 
     this.refs.sliderContainer.insertAdjacentHTML('beforeend', markup);
+  }
+
+  createTemplateFromSelected(arr) {
+    const markup = arr.reduce((acc, item) => acc + selectcard(item), '');
+
+    this.refs.container.insertAdjacentHTML('beforeend', markup);
+  }
+
+  clearPage() {
+    this.refs.container.innerHTML = '';
+  }
+
+  deleteSlide() {
+    this.refs.page.classList.remove('show-slider');
+    this.refs.sliderContainer.innerHTML = '';
   }
 }

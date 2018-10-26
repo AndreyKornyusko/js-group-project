@@ -22,7 +22,7 @@ export default class View {
     this.refs.slides = document.querySelectorAll('.slider__list-item');
     this.refs.select = document.querySelector('.slider__star');
     this.refs.delSlider = document.querySelector('.slider__del');
-    this.refs.delSelectedBtn = document.querySelector('.list__delButton');
+    this.refs.selectedDelBtn = document.querySelector('#root');
 
   }
 

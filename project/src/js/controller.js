@@ -50,9 +50,9 @@ export default class Controller {
       this.onclickDelSlider.bind(this),
     );
 
-    this._view.refs.delSelectedBtn.addEventListener(
+    this._view.refs.selectedDelBtn.addEventListener(
       'click',
-      onClickDelImageFromSelected.bind(this),
+      this.onClickDelImageFromSelected.bind(this),
     );
   }
 
@@ -174,17 +174,17 @@ export default class Controller {
     const target = evt.target;
     event.preventDefault();
     const action = target.dataset.action;
-    if(target.nodeName !=='BUTTON'|| action !== 'del') return;
+    if (target.nodeName !== 'BUTTON' || action !== 'del') return;
 
     console.log('click on delimage');
 
-    const listItem = target.closest('.list__img-card');
-    const imgId = Number(listItem.dataset.id);
+    // const listItem = target.closest('.list__img-card');
+    // const imgId = listItem.dataset.id;
 
-    console.log('listItem',listItem);
-    console.log('imgId',imgId);
+    // console.log('listItem',listItem);
+    // console.log('imgId',imgId);
 
-    this._model.deleteFromSelected(imgId);
-    this._view.createTemplateFromSelected(this._model._selecteds);
+    // this._model.deleteFromSelected(imgId);
+    // this._view.createTemplateFromSelected(this._model._selecteds);
   }
 }

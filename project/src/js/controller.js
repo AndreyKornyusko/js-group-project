@@ -171,20 +171,20 @@ export default class Controller {
   }
 
   onClickDelImageFromSelected(evt) {
-    const target = evt.target;
     event.preventDefault();
+    const target = evt.target;
     const action = target.dataset.action;
     if (target.nodeName !== 'BUTTON' || action !== 'del') return;
 
-    console.log('click on delimage');
+    const listItem = target.closest('.list__img-card');
+    const imgId = Number(listItem.dataset.id);
 
-    // const listItem = target.closest('.list__img-card');
-    // const imgId = listItem.dataset.id;
+    console.log('listItem',listItem);
+    console.log('imgId',imgId);
+    console.log('this._model._selecteds',this._model._selecteds);
 
-    // console.log('listItem',listItem);
-    // console.log('imgId',imgId);
-
-    // this._model.deleteFromSelected(imgId);
-    // this._view.createTemplateFromSelected(this._model._selecteds);
+    this._model.deleteFromSelected(imgId);
+    this._view.clearPage();
+    this._view.createTemplateFromSelected(this._model._selecteds);
   }
 }

@@ -1,6 +1,5 @@
 import card from '../templates/cards.hbs';
 import mcard from '../templates/mcard.hbs';
-import selectcard from '../templates/selectcard.hbs';
 
 export default class View {
   constructor() {
@@ -22,8 +21,6 @@ export default class View {
     this.refs.slides = document.querySelectorAll('.slider__list-item');
     this.refs.select = document.querySelector('.slider__star');
     this.refs.delSlider = document.querySelector('.slider__del');
-    this.refs.selectedDelBtn = document.querySelector('#root');
-
   }
 
   createTemplate(arr) {
@@ -36,12 +33,6 @@ export default class View {
     const markup = arr.reduce((acc, item) => acc + mcard(item), '');
 
     this.refs.sliderContainer.insertAdjacentHTML('beforeend', markup);
-  }
-
-  createTemplateFromSelected(arr) {
-    const markup = arr.reduce((acc, item) => acc + selectcard(item), '');
-
-    this.refs.container.insertAdjacentHTML('beforeend', markup);
   }
 
   clearPage() {

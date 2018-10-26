@@ -57,7 +57,6 @@
   justify-content: center;
   grid-template-columns: 100%;
   grid-template-rows: auto auto;
-
 }
 
 .main__wrapper {
@@ -67,6 +66,16 @@
   justify-content: flex-start;
   margin: 0 auto;
   @extend .flex-row;
+}
+
+.relative-wrap {
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto;
+  position: relative;
+  margin: 0 auto;
 }
 
 .main__logo {
@@ -79,6 +88,7 @@
   width: 100%;
   margin-top: 40px;
   justify-content: flex-start;
+  margin-bottom: 20px;
   @extend .flex-row;
 }
 

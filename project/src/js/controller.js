@@ -25,7 +25,7 @@ export default class Controller {
 
     this._view.refs.container.addEventListener(
       'click',
-      this.onClickShowSlider.bind(this),
+      this.onClickImagesInContainer.bind(this),
     );
     this._view.refs.selectedBtn.addEventListener(
       'click',
@@ -44,11 +44,6 @@ export default class Controller {
     this._view.refs.delSlider.addEventListener(
       'click',
       this.onclickDelSlider.bind(this),
-    );
-
-    this._view.refs.selectedDelBtn.addEventListener(
-      'click',
-      this.onClickDelImageFromSelected.bind(this),
     );
   }
 
@@ -72,17 +67,18 @@ export default class Controller {
 
   findActiveSlide() {
     const activElem = document.querySelector('.active');
-
     const id = Number(activElem.dataset.id);
     const previewURL = activElem.firstElementChild.dataset.preview;
     const largeImageURL = activElem.firstElementChild.getAttribute('src');
     const alt = activElem.firstElementChild.getAttribute('alt');
     const selectedItem = {
-      id: id,
-      previewURL: previewURL,
-      largeImageURL: largeImageURL,
-      alt: alt,
+      id,
+      selected: true,
+      previewURL,
+      largeImageURL,
+      alt,
     };
+
     return selectedItem;
   }
 
@@ -112,24 +108,41 @@ export default class Controller {
   onClickSearch(evt) {
     const target = evt.target;
     const action = target.dataset.action;
-    if (target.nodeName !== 'BUTTON' || action !== 'search') return;
-    evt.preventDefault();
     const inputValue = this._view.refs.input.value.trim();
+
+    evt.preventDefault();
+
+    if (target.nodeName !== 'BUTTON' || action !== 'search') return;
+  
     this.request.query = inputValue;
 
     this._model.getImages(this.request).then(data => {
-      console.log('data controller', data);
       this._view.createTemplate(data);
       this._view.refs.form.reset();
       this._view.refs.ShowMoreBtn.classList.add('visible');
     });
   }
 
-  onClickShowMore(evt) {
-    const target = evt.target;
+  onClickImagesInContainer({target}) {
+    const action = target.dataset.action;
+
+    console.log(action)
+    console.log(target)
+
+    switch(action) {
+      case 'showModal': 
+          this.showSlider(target);
+          break;
+      case 'del': 
+          this.delImageFromSelected(target);
+          break;
+    }
+  }
+
+  onClickShowMore({target}) {
     const action = target.dataset.action;
     if (target.nodeName !== 'BUTTON' || action !== 'show') return;
-    evt.preventDefault();
+
     this.request.incrementPage();
     this._model.getImages(this.request).then(data => {
       this._view.createTemplate(data);
@@ -137,30 +150,21 @@ export default class Controller {
     });
   }
 
-  onClickShowSlider(event) {
-    event.preventDefault();
-    const target = event.target;
+  showSlider(target) {
+    console.log("Slide")
     const nodeName = target.nodeName;
     const fullview = target.dataset.fullview;
 
     if (nodeName !== 'IMG') return;
-
-    console.log(fullview);
-
-    if (target.dataset.sel==='sel') {
-      this._view.createSliderTemplate(this._model.selecteds);
-      this.viewFirstSlideAfterClick(target);
-      this._view.refs.page.classList.add('show-slider');
-      return
-    }
 
     this._view.createSliderTemplate(this._model.allItems);
     this.viewFirstSlideAfterClick(target);
     this._view.refs.page.classList.add('show-slider');
   }
 
-  onClickAddToSelected(evt) {
+  onClickAddToSelected() {
     const selectArrItem = this.findActiveSlide();
+
     this._model.addToSelected(selectArrItem);
   }
 
@@ -168,24 +172,22 @@ export default class Controller {
     this._view.clearPage();
     this._view.deleteSlide();
     this._view.refs.ShowMoreBtn.classList.remove('visible');
-    this._view.createTemplateFromSelected(this._model._selecteds);
+    this._view.createTemplate(this._model._selecteds);
   }
 
   onclickDelSlider() {
     this._view.deleteSlide();
   }
 
-  onClickDelImageFromSelected(evt) {
-    event.preventDefault();
-    const target = evt.target;
-    const action = target.dataset.action;
-    if (target.nodeName !== 'DIV' || action !== 'del') return;
-
+  delImageFromSelected(target) {
+    console.log("deleted")
     const listItem = target.closest('.list__img-card');
     const imgId = Number(listItem.dataset.id);
 
+    // if (target.nodeName !== 'DIV' || action !== 'del') return;
+    
     this._model.deleteFromSelected(imgId);
     this._view.clearPage();
-    this._view.createTemplateFromSelected(this._model._selecteds);
+    this._view.createTemplate(this._model._selecteds);
   }
 }

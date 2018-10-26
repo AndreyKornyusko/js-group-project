@@ -7,7 +7,6 @@ export default class Model {
     this._items = items;
     this._selecteds = LOCALSTORAGE.get('selected') ? LOCALSTORAGE.get('selected') : [];
     this._allItems  = [];
-    this._selectid  = []
   }
 
   get items() {

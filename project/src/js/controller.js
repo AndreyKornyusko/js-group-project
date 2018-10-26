@@ -80,10 +80,12 @@ export default class Controller {
     const id = Number(activElem.dataset.id);
     const previewURL = activElem.firstElementChild.dataset.preview;
     const largeImageURL = activElem.firstElementChild.getAttribute('src');
+const alt = activElem.firstElementChild.getAttribute('alt');
     const selectedItem = {
       id: id,
       previewURL: previewURL,
       largeImageURL: largeImageURL,
+      alt: alt
     };
     return selectedItem;
   }

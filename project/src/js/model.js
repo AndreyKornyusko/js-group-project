@@ -44,11 +44,8 @@ export default class Model {
 
   deleteFromSelected(id) {
     const filteredArr = this._selecteds.filter(obj => obj.id !== id);
-    
-    console.log('filteredArr',filteredArr);
-
+  
     this._selecteds = filteredArr;
-    // this._selecteds =[];
   	LOCALSTORAGE.set('selected', this._selecteds);
 
   	return this._selecteds;
@@ -59,14 +56,4 @@ export default class Model {
   	this._selecteds = [];
   }
 
-  // setLocalStorage() {
-  //   localStorage.setItem('images', JSON.stringify(this._selectid));
-  // }
-
-  // getLocalStorage() {
-  //   const linksFromLs = JSON.parse(localStorage.getItem('images'));
-  //   if (linksFromLs !== null) {
-  //     this._selectid = linksFromLs;
-  //   }
-  // }
 }

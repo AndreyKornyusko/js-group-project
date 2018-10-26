@@ -58,6 +58,7 @@ export default class Controller {
     const slides = document.querySelectorAll('.slider__list-item');
     const listItem = target.closest('.list__img-card');
     const imgId = listItem.dataset.id;
+    listItem.scrollIntoView();
     slides.forEach((slide, i) => {
       if (imgId === slide.dataset.id) {
         slide.classList.add('active');
@@ -84,7 +85,6 @@ export default class Controller {
 
   onclickNext(evt) {
     this.slide();
-    console.log('next');
     const activeEl = document.querySelector('.active');
     if (activeEl.nextElementSibling) {
       activeEl.style.left = '-100%';
@@ -95,9 +95,8 @@ export default class Controller {
 
   onclickPrew(evt) {
     this.slide();
-    console.log('prew');
     const activeEl = document.querySelector('.active');
-    console.log(activeEl);
+
     if (activeEl.previousElementSibling) {
       activeEl.previousElementSibling.style.left = '0%';
       activeEl.classList.remove('active');
@@ -126,9 +125,6 @@ export default class Controller {
   onClickImagesInContainer({target}) {
     const action = target.dataset.action;
 
-    console.log(action)
-    console.log(target)
-
     switch(action) {
       case 'showModal': 
           this.showSlider(target);
@@ -151,13 +147,10 @@ export default class Controller {
   }
 
   showSlider(target) {
-    console.log("Slide")
     const nodeName = target.nodeName;
     const fullview = target.dataset.fullview;
 
     if (nodeName !== 'IMG') return;
-
-    console.log(fullview);
 
     this._view.createSliderTemplate(this._model.allItems);
     this.viewFirstSlideAfterClick(target);
@@ -182,11 +175,8 @@ export default class Controller {
   }
 
   delImageFromSelected(target) {
-    console.log("deleted")
     const listItem = target.closest('.list__img-card');
     const imgId = Number(listItem.dataset.id);
-
-    // if (target.nodeName !== 'DIV' || action !== 'del') return;
     
     this._model.deleteFromSelected(imgId);
     this._view.clearPage();

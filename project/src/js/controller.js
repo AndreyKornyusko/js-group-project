@@ -147,8 +147,6 @@ export default class Controller {
 
     console.log(fullview);
 
-    console.log('target.dataset.type',target.dataset.sel);
-
     if (target.dataset.sel==='sel') {
       this._view.createSliderTemplate(this._model.selecteds);
       this.viewFirstSlideAfterClick(target);
@@ -181,14 +179,10 @@ export default class Controller {
     event.preventDefault();
     const target = evt.target;
     const action = target.dataset.action;
-    if (target.nodeName !== 'BUTTON' || action !== 'del') return;
+    if (target.nodeName !== 'DIV' || action !== 'del') return;
 
     const listItem = target.closest('.list__img-card');
     const imgId = Number(listItem.dataset.id);
-
-    console.log('listItem', listItem);
-    console.log('imgId', imgId);
-    console.log('this._model._selecteds', this._model._selecteds);
 
     this._model.deleteFromSelected(imgId);
     this._view.clearPage();

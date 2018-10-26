@@ -157,6 +157,16 @@ export default class Controller {
 
     if (nodeName !== 'IMG') return;
 
+    console.log(fullview);
+
+
+    if (target.dataset.sel==='sel') {
+      this._view.createSliderTemplate(this._model.selecteds);
+      this.viewFirstSlideAfterClick(target);
+      this._view.refs.page.classList.add('show-slider');
+      return
+    }
+
     this._view.createSliderTemplate(this._model.allItems);
     this.viewFirstSlideAfterClick(target);
     this._view.refs.page.classList.add('show-slider');

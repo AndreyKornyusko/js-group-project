@@ -14,8 +14,6 @@ export default class Controller {
       },
     };
 
-    // this._model.getLocalStorage();
-
     this._view.refs.searchBtn.addEventListener(
       'click',
       this.onClickSearch.bind(this),
@@ -33,8 +31,6 @@ export default class Controller {
       'click',
       this.onClickShowSelectedImage.bind(this),
     );
-
-    // this.slide();
 
     this._view.refs.prew.addEventListener('click', this.onclickPrew.bind(this));
 
@@ -80,12 +76,12 @@ export default class Controller {
     const id = Number(activElem.dataset.id);
     const previewURL = activElem.firstElementChild.dataset.preview;
     const largeImageURL = activElem.firstElementChild.getAttribute('src');
-const alt = activElem.firstElementChild.getAttribute('alt');
+    const alt = activElem.firstElementChild.getAttribute('alt');
     const selectedItem = {
       id: id,
       previewURL: previewURL,
       largeImageURL: largeImageURL,
-      alt: alt
+      alt: alt,
     };
     return selectedItem;
   }
@@ -151,6 +147,15 @@ const alt = activElem.firstElementChild.getAttribute('alt');
 
     console.log(fullview);
 
+    console.log('target.dataset.type',target.dataset.sel);
+
+    if (target.dataset.sel==='sel') {
+      this._view.createSliderTemplate(this._model.selecteds);
+      this.viewFirstSlideAfterClick(target);
+      this._view.refs.page.classList.add('show-slider');
+      return
+    }
+
     this._view.createSliderTemplate(this._model.allItems);
     this.viewFirstSlideAfterClick(target);
     this._view.refs.page.classList.add('show-slider');
@@ -158,7 +163,7 @@ const alt = activElem.firstElementChild.getAttribute('alt');
 
   onClickAddToSelected(evt) {
     const selectArrItem = this.findActiveSlide();
-    this._model.addToSelected(selectArrItem)
+    this._model.addToSelected(selectArrItem);
   }
 
   onClickShowSelectedImage() {
@@ -181,9 +186,9 @@ const alt = activElem.firstElementChild.getAttribute('alt');
     const listItem = target.closest('.list__img-card');
     const imgId = Number(listItem.dataset.id);
 
-    console.log('listItem',listItem);
-    console.log('imgId',imgId);
-    console.log('this._model._selecteds',this._model._selecteds);
+    console.log('listItem', listItem);
+    console.log('imgId', imgId);
+    console.log('this._model._selecteds', this._model._selecteds);
 
     this._model.deleteFromSelected(imgId);
     this._view.clearPage();

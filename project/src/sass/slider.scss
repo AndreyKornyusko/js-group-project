@@ -1,8 +1,6 @@
 .page.show-slider .backdrop {
   display: flex;
-  
 }
-
 
 .backdrop {
   display: none;
@@ -93,4 +91,49 @@
   cursor: pointer;
   justify-content: center;
   align-items: center;
+}
+
+.slider__arrow--left {
+  width: 6px;
+  height: 10px;
+  background-image: url(../img/left.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  &:hover {
+    background-image: url(../img/left-hov.png);
+  }
+}
+
+.slider__arrow--right {
+  width: 6px;
+  height: 10px;
+  background-image: url(../img/right.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  &:hover {
+    background-image: url(../img/right-hov.png);
+  }
+}
+
+.slider__star {
+  width: 10px;
+  height: 10px;
+  background-image: url(../img/slider-star.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  &:hover {
+    background-image: url(../img/slider-star-hov.png);
+  }
+}
+
+.slider__del {
+  width: 10px;
+  height: 10px;
+  background-image: url(../img/del.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  &:hover {
+    background-image: url(../img/del-hov.png);
+  
+  }
 }

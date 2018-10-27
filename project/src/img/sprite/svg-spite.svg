@@ -1,0 +1,42 @@
+
+
+<!-- избранное в шапке -->
+<svg class="selected__svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14px" height="14px">
+            <image x="0px" y="0px" width="14px" height="14px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAb1BMVEVnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrdnOrf////+FD+DAAAAI3RSTlMAU80Xi4wKKPX2ctzd8nNeMvEY0X7LDq/+D1foW1pYMYcUFRlzl0oAAAABYktHRCS0BvmZAAAAB3RJTUUH4goXDCM2aC98MgAAAGxJREFUCNdNzOkSgjAQA+BQsFUOKTcKyJH3f0doV53mz+ab2QngE0UIo1SomIwDJuTtD23u5MNo19MsL+hT5NkTJYOUgK1+qKx7rxtRU8tUK2y/y52wE/VXHQZyfHm+Oc3AMvHjuW67O8e2AiegbwtF/sgb7gAAAABJRU5ErkJggg=="
+            />
+          </svg>
+
+          <!-- стрелка влево -->
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="6px" height="10px">
+        <image x="0px" y="0px" width="6px" height="10px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAKCAQAAAA9B+e4AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiChUSMi6UK4GFAAAAV0lEQVQI10XNOw5AUAAF0SHyYgkKUSqsx25sSauTaBR2oJZIdGrdKJ7PnepUN5FnLVXy4WB4sZHSZADsQAkpBQsnJQB2KjEM9l6GCMRJzV/gqNb/z8x6A0RvKmC1iDyeAAAAAElFTkSuQmCC"
+                      />
+          </svg>
+
+          <!-- стрелка вправо -->
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="6px" height="10px">
+          <image x="0px" y="0px" width="6px" height="10px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAKCAQAAAA9B+e4AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiChUSMyEdj61VAAAAWElEQVQI1zXMsQ3CUBRDUaehS9iALhIjRKlhKmo6WrZIwwCZI0vABhGH4vHtxle2HLOblOOCsUE8G9bggXODuNtNnfz1zdaaxcep4gtHiYMVQ71dvfU1/gHma0ZmZViATgAAAABJRU5ErkJggg=="
+            />
+          </svg>
+
+            <!-- звезда -->
+                              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="11px" height="11px">
+                    <image x="0px" y="0px" width="11px" height="11px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAMAAACecocUAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAb1BMVEXN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3DnN3Dn///+W0WsQAAAAI3RSTlMATB37KIaSCxY29Po5DFFaEaatE3iBH3PefNX3VE3zXTgzYJx5zNUAAAABYktHRCS0BvmZAAAAB3RJTUUH4goVEjAv0RrTkQAAAFBJREFUCNc9y0cWgDAMQ0HRQ+8QetH970gw5S/8ZiEDdxb+bMf97dF/EKgwYpyoFMj4laMoX1a1GTXCVh6UuBP3pCYH8TjNWFYt3nZzjhO4AG9MBty2KYxiAAAAAElFTkSuQmCC"
+                    />
+                  </svg>
+
+                  <!-- уделение слайдера -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10px" height="10px">
+                    <image x="0px" y="0px" width="10px" height="10px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiChUSNBbqc56dAAAAgElEQVQI11WOOwrCUBQF54GNYBULOwu34S5cRTajVbC2dBcuIDaCJr2d4BciSpqxeI+o9zSH4TDcYM6dNd+bMcSlL/nJwwUOLH126OLefqzbtL5ZiQSjaUNLS8YU6CAIhFh7CR1Z8ebEKA3Es4fkbkRw4jXqRSxtHGNh/ffnzvkH/fhc37F++GIAAAAASUVORK5CYII="
+                    />
+                  </svg>
+
+                  <!-- удаление картинки из селект -->
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10px" height="10px">
+      <image x="0px" y="0px" width="10px" height="10px" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfiChkWMyO+XtsdAAAAfUlEQVQI10WOsQ2CUAAFD2JMXMCe1sQJsKQgn5LCTi2sDW7iGExgg8O4gAWVNOQs4OOr3rvi8hKvvHnxz5FvypaOfEFnWtaIN/Ug4kUtBRHvamahBokQK1V300pn1weAfl4intS9dXRHFERs1FymEozuRq1WjNQ8l58PBjY/rBhaZsxikaQAAAAASUVORK5CYII="
+      />
+    </svg>
+
+
+
+
+

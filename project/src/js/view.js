@@ -6,7 +6,7 @@ export default class View {
     this.refs = {};
 
     this.refs.page = document.querySelector('.page');
-    this.refs.selectedBtn = document.querySelector('.selected-btn');
+    this.refs.selectedBtn = document.querySelector('.selected');
     this.refs.form = document.querySelector('.js-form');
     this.refs.input = document.querySelector('input[name=query]');
     this.refs.searchBtn = document.querySelector('button[data-action=search]');
@@ -19,6 +19,9 @@ export default class View {
     this.refs.prew = document.querySelector('.prew');
     this.refs.next = document.querySelector('.next');
     this.refs.slides = document.querySelectorAll('.slider__list-item');
+    this.refs.select = document.querySelector('.slider__star');
+    this.refs.delSlider = document.querySelector('.slider__del');
+    this.refs.listWrap = document.querySelector('.list-wrap');
   }
 
   createTemplate(arr) {
@@ -31,5 +34,19 @@ export default class View {
     const markup = arr.reduce((acc, item) => acc + mcard(item), '');
 
     this.refs.sliderContainer.insertAdjacentHTML('beforeend', markup);
+  }
+
+  clearPage() {
+    this.refs.container.innerHTML = '';
+  }
+
+  deleteSlide() {
+    this.refs.page.classList.remove('show-slider');
+    this.refs.sliderContainer.innerHTML = '';
+  }
+
+  insertSelected() {
+    const markup = '<span class="list__selected-button">Избранное</span>'
+    this.refs.listWrap.insertAdjacentHTML('afterbegin', markup);
   }
 }

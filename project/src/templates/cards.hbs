@@ -1,3 +1,7 @@
 <li class="list__img-card" data-id="{{id}}">
-  <img class="list__preview-img" src="{{previewURL}}" data-fullview="{{largeImageURL}}" alt="{{tags}}">
+  <img class="list__preview-img" src="{{previewURL}}" data-fullview="{{largeImageURL}}" data-action = "showModal" alt="{{tags}}">
+  {{#if selected}}
+  <div class="list__delButton" data-action="del">
+  </div>
+  {{/if}}
 </li>

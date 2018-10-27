@@ -1,3 +1,5 @@
+@import 'slider';
+
 * {
   margin: 0;
   padding: 0;
@@ -5,20 +7,25 @@
   font-family: 'Roboto', sans-serif;
 }
 
-@import 'slider';
+
 
 @mixin respond-to($media) {
   @if $media == handhelds {
-    @media only screen and (min-width: 320px) and (max-width:548px) { @content; }
-  }
-  @else if $media == small-screens {
-  	 @media only screen and (min-width: 547px) and (max-width: 669px) { @content; }
-  }
-  @else if $media == medium-screens {
-    @media only screen and (min-width: 670px) and (max-width: 980px) { @content; }
-  }
-  @else if $media == wide-screens {
-    @media only screen and (min-width: 981px) and (max-width: 1250px) { @content; }
+    @media only screen and (min-width: 320px) and (max-width: 548px) {
+      @content;
+    }
+  } @else if $media == small-screens {
+    @media only screen and (min-width: 547px) and (max-width: 669px) {
+      @content;
+    }
+  } @else if $media == medium-screens {
+    @media only screen and (min-width: 670px) and (max-width: 980px) {
+      @content;
+    }
+  } @else if $media == wide-screens {
+    @media only screen and (min-width: 981px) and (max-width: 1250px) {
+      @content;
+    }
   }
 }
 
@@ -48,15 +55,32 @@
   max-width: 115px;
   min-width: 105px;
   @extend .flex-row;
+  cursor: pointer;
+}
+
+.selected, .list__selected-button{
+  font-size: 16px;
+  font-family: 'Roboto';
+  color: rgb(103, 58, 183);
+}
+
+.selected__svg-wrap {
+  width: 15px;
+  height: 15px;
+  background-image: url(../img/header-star.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  &:hover {
+    background-image: url(../img/header-star-hov.png);
+  }
 }
 
 .main {
-  width: 90%;
+  width: 100%;
   display: grid;
   justify-content: center;
   grid-template-columns: 100%;
   grid-template-rows: auto auto;
-
 }
 
 .main__wrapper {
@@ -66,6 +90,22 @@
   justify-content: flex-start;
   margin: 0 auto;
   @extend .flex-row;
+}
+
+.relative-wrap, .list-img-wrap {
+  width: 100%;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto;
+  position: relative;
+  margin: 0 auto;
+}
+
+.list-wrap {
+  width: 100%;
+  margin: 0 auto;
+  
 }
 
 .main__logo {
@@ -78,6 +118,7 @@
   width: 100%;
   margin-top: 40px;
   justify-content: flex-start;
+  margin-bottom: 20px;
   @extend .flex-row;
 }
 
@@ -101,11 +142,14 @@
   padding: 7px 17px;
   color: #fff;
   cursor: pointer;
+  &:hover {
+    background: #b7c06a;
 
+  }
 }
 
 .list {
-	display: grid;
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 200px));
   grid-template-rows: repeat(auto-fit, 120px);
   grid-gap: 20px;
@@ -114,43 +158,64 @@
   width: 78%;
   list-style: none;
   justify-self: center;
+  margin: 0 auto;
   margin-bottom: 25px;
 
-	@include respond-to(handhelds) {
-			grid-template-columns: repeat(auto-fit, minmax(250px, 320px));
-		}
+  @include respond-to(handhelds) {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 320px));
+  }
 
-		@include respond-to(small-screens) {
-			width:88%;
-		}
+  @include respond-to(small-screens) {
+    width: 88%;
+  }
 
-  	@include respond-to(medium-screens) {
-  		width: 640px;
-  	}
+  @include respond-to(medium-screens) {
+    width: 640px;
+  }
 
-  	@include respond-to(wide-screens) {
-  		width: 640px;
-			
-  	}
+  @include respond-to(wide-screens) {
+    width: 640px;
+  }
 }
 
 .button.more.visible {
-	display: block;
+  display: block;
 }
 
 .button.more {
-	display: none;
-	width: 20%;
-	justify-self: center;
-	margin-bottom: 20px;
-  margin-top: 30px;
+  display: none;
+  width: 20%;
+  justify-self: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .list__img-card {
-  background: teal;
+  position: relative;
+  background-color: #231f20;
   height: 122px;
   width: 205px;
   cursor: pointer;
+  &:hover {
+    background-color: #524b4d;
+    box-shadow: inset hoff voff blur rgb(180, 176, 176);
+  }
+}
+
+
+.list__delButton {
+  position: absolute;
+  display: block;
+  width: 12px;
+  height: 12px;
+  top: 2px;
+  right: 2px;
+  background-image: url(../img/del.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  // &:hover {
+  //   display: block;
+  // }
 }
 
 .list__preview-img {
@@ -159,4 +224,11 @@
   height: 122px;
   object-fit: contain;
 }
+
+
+
+// .list__preview-img > .list__delButton:hover {
+//   display: block;
+// }
+
 

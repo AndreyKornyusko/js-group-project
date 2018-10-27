@@ -21,6 +21,10 @@ export default class Model {
     return this._allItems;
   }
 
+  setAllItems(items) {
+    this._allItems = items;
+  }
+
   getImages({ query = '', page = 1 }) {
     return queryImages(query, page)
     .then(data => {

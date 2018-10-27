@@ -159,7 +159,7 @@ export default class Controller {
 
   onClickAddToSelected() {
     const selectArrItem = this.findActiveSlide();
-
+  
     this._model.addToSelected(selectArrItem);
   }
 
@@ -168,6 +168,7 @@ export default class Controller {
     this._view.deleteSlide();
     this._view.refs.ShowMoreBtn.classList.remove('visible');
     this._view.createTemplate(this._model._selecteds);
+    this._model.setAllItems(this._model._selecteds);
   }
 
   onclickDelSlider() {

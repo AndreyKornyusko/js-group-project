@@ -21,6 +21,10 @@ export default class Model {
     return this._allItems;
   }
 
+  setAllItems(items) {
+    this._allItems = items;
+  }
+
   getImages({ query = '', page = 1 }) {
     return queryImages(query, page)
     .then(data => {
@@ -35,7 +39,12 @@ export default class Model {
   }
 
   addToSelected(item) {
-   	this._selecteds.push(item);
+    if(this._selecteds.some(obj => obj.id === item.id)) {
+      alert("this picture in selecteds");
+      return;
+    }
+    
+    this._selecteds.push(item);
   	LOCALSTORAGE.set('selected', this._selecteds);
 
   	return this._selecteds;

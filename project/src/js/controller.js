@@ -167,6 +167,9 @@ export default class Controller {
     this._view.clearPage();
     this._view.deleteSlide();
     this._view.refs.ShowMoreBtn.classList.remove('visible');
+
+    this._view.insertSelected();
+
     this._view.createTemplate(this._model._selecteds);
     this._model.setAllItems(this._model._selecteds);
   }

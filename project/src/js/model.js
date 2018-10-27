@@ -39,7 +39,12 @@ export default class Model {
   }
 
   addToSelected(item) {
-   	this._selecteds.push(item);
+    if(this._selecteds.some(obj => obj.id === item.id)) {
+      alert("this picture in selecteds");
+      return;
+    }
+    
+    this._selecteds.push(item);
   	LOCALSTORAGE.set('selected', this._selecteds);
 
   	return this._selecteds;

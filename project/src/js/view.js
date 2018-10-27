@@ -21,6 +21,7 @@ export default class View {
     this.refs.slides = document.querySelectorAll('.slider__list-item');
     this.refs.select = document.querySelector('.slider__star');
     this.refs.delSlider = document.querySelector('.slider__del');
+    this.refs.listWrap = document.querySelector('.list-wrap');
   }
 
   createTemplate(arr) {
@@ -42,5 +43,10 @@ export default class View {
   deleteSlide() {
     this.refs.page.classList.remove('show-slider');
     this.refs.sliderContainer.innerHTML = '';
+  }
+
+  insertSelected() {
+    const markup = '<span class="list__selected-button">Избранное</span>'
+    this.refs.listWrap.insertAdjacentHTML('afterbegin', markup);
   }
 }

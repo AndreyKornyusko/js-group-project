@@ -213,9 +213,6 @@
   background-image: url(../img/del.png);
   background-repeat: no-repeat;
   background-size: contain;
-  // &:hover {
-  //   display: block;
-  // }
 }
 
 .list__preview-img {
@@ -223,12 +220,11 @@
   width: 100%;
   height: 122px;
   object-fit: contain;
+  &:hover  .list__delButton {
+    display: block;
+  }
 }
 
 
-
-// .list__preview-img > .list__delButton:hover {
-//   display: block;
-// }
 
 

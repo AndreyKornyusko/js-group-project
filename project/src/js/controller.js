@@ -115,6 +115,11 @@ export default class Controller {
   
     this.request.query = inputValue;
 
+    if (!this.isEnteredUrlValid(inputValue)) {
+      this._view.refs.form.reset();
+      return;
+    }
+
     this._model.getImages(this.request).then(data => {
       this._view.createTemplate(data);
       this._view.refs.form.reset();
@@ -181,5 +186,20 @@ export default class Controller {
     this._model.deleteFromSelected(imgId);
     this._view.clearPage();
     this._view.createTemplate(this._model._selecteds);
+  }
+
+  isEnteredValueValid(inputLinkValue) {
+    const value = /^[a-zA-Z]/.test(inputLinkValue);
+
+    if (!value) {
+      alert('Ваш поисковый запрос не корректный');
+      return false;
+    }
+    // if (inputLinkValue=== '') {
+    //   alert('Вы ничего не ввели');
+    //   return false;
+    // }
+
+    return true;
   }
 }

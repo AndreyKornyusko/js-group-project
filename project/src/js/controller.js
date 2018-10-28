@@ -14,10 +14,10 @@ export default class Controller {
       },
     };
 
-    this._view.refs.searchBtn.addEventListener(
+   /* this._view.refs.searchBtn.addEventListener(
       'click',
       this.onClickSearch.bind(this),
-    );
+    );*/
     this._view.refs.ShowMoreBtn.addEventListener(
       'click',
       this.onClickShowMore.bind(this),
@@ -45,6 +45,10 @@ export default class Controller {
       'click',
       this.onclickDelSlider.bind(this),
     );
+    this._view.refs.form.addEventListener(
+      'submit',
+      this.onClickSearch.bind(this),
+  ); 
   }
 
   slide() {
@@ -107,23 +111,32 @@ export default class Controller {
     }
   }
 
+  // onClickFormSubmit(evt){
+  //   evt.preventDefault();
+  //   const inputValue = this._view.refs.input.value.trim();
+  //   this.request.query = inputValue;
+
+  //   this._model.getImages(this.request).then(data => {
+  //     this._view.createTemplate(data);
+  //     this._view.refs.form.reset();
+  //     this._view.refs.ShowMoreBtn.classList.add('visible');
+  //   });
+
+  // }
+
   onClickSearch(evt) {
-    const target = evt.target;
-    const action = target.dataset.action;
-    const inputValue = this._view.refs.input.value.trim();
+      const inputValue = this._view.refs.input.value.trim();
+      evt.preventDefault();
+      this.request.query = inputValue;
 
-    evt.preventDefault();
-
-    if (target.nodeName !== 'BUTTON' || action !== 'search') return;
-
-    this.request.query = inputValue;
-
-    if (!this.isEnteredValueValid(inputValue)) {
+      if (!this.isEnteredValueValid(inputValue)) {
       this._view.refs.form.reset();
       return;
     }
-    this._view.clearPage();
-    this._model.getImages(this.request).then(data => {
+
+      this._view.clearPage();
+      this._model.getImages(this.request).then(data => {
+
       this._view.createTemplate(data);
       this._view.refs.form.reset();
       this._view.refs.ShowMoreBtn.classList.add('visible');
@@ -132,6 +145,8 @@ export default class Controller {
 
   onClickImagesInContainer({ target }) {
     const action = target.dataset.action;
+
+    console.log(target)
 
     switch (action) {
       case 'showModal':
@@ -158,7 +173,7 @@ export default class Controller {
     const nodeName = target.nodeName;
     const fullview = target.dataset.fullview;
 
-    if (nodeName !== 'IMG') return;
+    if (nodeName !== 'DIV') return;
 
     this._view.createSliderTemplate(this._model.allItems);
     this.viewFirstSlideAfterClick(target);

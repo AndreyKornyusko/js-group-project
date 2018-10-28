@@ -126,6 +126,10 @@
   }
 }
 
+.slider__star.activated{
+  background-image: url(../img/slider-star-activated.png);
+}
+
 .slider__del {
   width: 0.625rem;
   height: 0.625rem;

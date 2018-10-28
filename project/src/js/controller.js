@@ -122,9 +122,14 @@ export default class Controller {
   }
 
   onClickSearch(evt) {
-    const inputValue = this._view.refs.input.value.trim();
-    evt.preventDefault();
-    this.request.query = inputValue;
+      const inputValue = this._view.refs.input.value.trim();
+      evt.preventDefault();
+      this.request.query = inputValue;
+
+      if (!this.isEnteredValueValid(inputValue)) {
+      this._view.refs.form.reset();
+      return;
+    }
 
       this._model.getImages(this.request).then(data => {
       this._view.createTemplate(data);
@@ -133,20 +138,20 @@ export default class Controller {
     });
   }
 
-  onClickImagesInContainer({target}) {
+  onClickImagesInContainer({ target }) {
     const action = target.dataset.action;
 
-    switch(action) {
-      case 'showModal': 
-          this.showSlider(target);
-          break;
-      case 'del': 
-          this.delImageFromSelected(target);
-          break;
+    switch (action) {
+      case 'showModal':
+        this.showSlider(target);
+        break;
+      case 'del':
+        this.delImageFromSelected(target);
+        break;
     }
   }
 
-  onClickShowMore({target}) {
+  onClickShowMore({ target }) {
     const action = target.dataset.action;
     if (target.nodeName !== 'BUTTON' || action !== 'show') return;
 
@@ -170,7 +175,7 @@ export default class Controller {
 
   onClickAddToSelected() {
     const selectArrItem = this.findActiveSlide();
-  
+
     this._model.addToSelected(selectArrItem);
   }
 
@@ -192,9 +197,23 @@ export default class Controller {
   delImageFromSelected(target) {
     const listItem = target.closest('.list__img-card');
     const imgId = Number(listItem.dataset.id);
-    
+
     this._model.deleteFromSelected(imgId);
     this._view.clearPage();
     this._view.createTemplate(this._model._selecteds);
+  }
+
+  isEnteredValueValid(inputValue) {
+    const value = /^[a-zA-Z0-9]/.test(inputValue);
+
+    if (inputValue === '') {
+      alert('Вы ничего не ввели');
+      return false;
+    }
+    if (!value) {
+      alert('Ваш поисковый запрос не корректный');
+      return false;
+    }
+    return true;
   }
 }

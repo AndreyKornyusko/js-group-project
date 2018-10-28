@@ -14,10 +14,10 @@ export default class Controller {
       },
     };
 
-    this._view.refs.searchBtn.addEventListener(
+   /* this._view.refs.searchBtn.addEventListener(
       'click',
       this.onClickSearch.bind(this),
-    );
+    );*/
     this._view.refs.ShowMoreBtn.addEventListener(
       'click',
       this.onClickShowMore.bind(this),
@@ -45,6 +45,10 @@ export default class Controller {
       'click',
       this.onclickDelSlider.bind(this),
     );
+    this._view.refs.form.addEventListener(
+      'submit',
+      this.onClickSearch.bind(this),
+  ); 
   }
 
   slide() {
@@ -86,10 +90,12 @@ export default class Controller {
   onclickNext(evt) {
     this.slide();
     const activeEl = document.querySelector('.active');
+    
     if (activeEl.nextElementSibling) {
       activeEl.style.left = '-100%';
       activeEl.classList.remove('active');
       activeEl.nextElementSibling.classList.add('active');
+      this._view.refs.select.classList.remove('activated');
     }
   }
 
@@ -101,26 +107,37 @@ export default class Controller {
       activeEl.previousElementSibling.style.left = '0%';
       activeEl.classList.remove('active');
       activeEl.previousElementSibling.classList.add('active');
+      this._view.refs.select.classList.remove('activated');
     }
   }
 
-  onClickSearch(evt) {
-    const target = evt.target;
-    const action = target.dataset.action;
-    const inputValue = this._view.refs.input.value.trim();
-
+  onClickFormSubmit(evt){
     evt.preventDefault();
-
-    if (target.nodeName !== 'BUTTON' || action !== 'search') return;
-
+    const inputValue = this._view.refs.input.value.trim();
     this.request.query = inputValue;
 
-    if (!this.isEnteredValueValid(inputValue)) {
+    this._model.getImages(this.request).then(data => {
+      this._view.createTemplate(data);
+      this._view.refs.form.reset();
+      this._view.refs.ShowMoreBtn.classList.add('visible');
+    });
+
+  }
+
+  onClickSearch(evt) {
+      const inputValue = this._view.refs.input.value.trim();
+      evt.preventDefault();
+      this.request.query = inputValue;
+
+      if (!this.isEnteredValueValid(inputValue)) {
       this._view.refs.form.reset();
       return;
     }
 
-    this._model.getImages(this.request).then(data => {
+      this._model.getImages(this.request).then(data => {
+      this._view.clearPage();
+      this._model.getImages(this.request).then(data => {
+
       this._view.createTemplate(data);
       this._view.refs.form.reset();
       this._view.refs.ShowMoreBtn.classList.add('visible');

@@ -14,10 +14,6 @@ export default class Controller {
       },
     };
 
-   /* this._view.refs.searchBtn.addEventListener(
-      'click',
-      this.onClickSearch.bind(this),
-    );*/
     this._view.refs.ShowMoreBtn.addEventListener(
       'click',
       this.onClickShowMore.bind(this),
@@ -108,24 +104,16 @@ export default class Controller {
     }
   }
 
-  onClickFormSubmit(evt){
-    evt.preventDefault();
-    const inputValue = this._view.refs.input.value.trim();
-    this.request.query = inputValue;
-
-    this._model.getImages(this.request).then(data => {
-      this._view.createTemplate(data);
-      this._view.refs.form.reset();
-      this._view.refs.ShowMoreBtn.classList.add('visible');
-    });
-
-  }
 
   onClickSearch(evt) {
     const inputValue = this._view.refs.input.value.trim();
     evt.preventDefault();
     this.request.query = inputValue;
-
+    
+    if (!this.isEnteredValueValid(inputValue)) {
+      this._view.refs.form.reset();
+      return;
+    }
       this._model.getImages(this.request).then(data => {
       this._view.createTemplate(data);
       this._view.refs.form.reset();
@@ -196,5 +184,19 @@ export default class Controller {
     this._model.deleteFromSelected(imgId);
     this._view.clearPage();
     this._view.createTemplate(this._model._selecteds);
+  }
+
+  isEnteredValueValid(inputValue) {
+    const value = /^[a-zA-Z0-9]/.test(inputValue);
+
+    if (inputValue === '') {
+      alert('Вы ничего не ввели');
+      return false;
+    }
+    if (!value) {
+      alert('Ваш поисковый запрос не корректный');
+      return false;
+    }
+    return true;
   }
 }

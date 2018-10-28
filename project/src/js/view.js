@@ -22,6 +22,7 @@ export default class View {
     this.refs.select = document.querySelector('.slider__star');
     this.refs.delSlider = document.querySelector('.slider__del');
     this.refs.listWrap = document.querySelector('.list-wrap');
+    this.refs.backdrop = document.querySelector('.backdrop');
   }
 
   createTemplate(arr) {

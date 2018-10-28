@@ -41,7 +41,7 @@ export default class Controller {
       this.onClickAddToSelected.bind(this),
     );
 
-    this._view.refs.delSlider.addEventListener(
+    this._view.refs.backdrop.addEventListener(
       'click',
       this.onclickDelSlider.bind(this),
     );
@@ -184,9 +184,12 @@ export default class Controller {
     this._model.setAllItems(this._model._selecteds);
   }
 
-  onclickDelSlider() {
-    this._view.deleteSlide();
-  }
+  onclickDelSlider({ target }) {
+    const action = target.dataset.action;
+  if(action === "delete") {
+        this._view.deleteSlide();
+    }
+  } 
 
   delImageFromSelected(target) {
     const listItem = target.closest('.list__img-card');

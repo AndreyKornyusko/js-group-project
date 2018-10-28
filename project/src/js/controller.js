@@ -130,6 +130,8 @@ export default class Controller {
   onClickImagesInContainer({ target }) {
     const action = target.dataset.action;
 
+    console.log(target)
+
     switch (action) {
       case 'showModal':
         this.showSlider(target);
@@ -155,7 +157,7 @@ export default class Controller {
     const nodeName = target.nodeName;
     const fullview = target.dataset.fullview;
 
-    if (nodeName !== 'IMG') return;
+    if (nodeName !== 'DIV') return;
 
     this._view.createSliderTemplate(this._model.allItems);
     this.viewFirstSlideAfterClick(target);

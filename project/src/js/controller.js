@@ -111,18 +111,18 @@ export default class Controller {
     }
   }
 
-  onClickFormSubmit(evt){
-    evt.preventDefault();
-    const inputValue = this._view.refs.input.value.trim();
-    this.request.query = inputValue;
+  // onClickFormSubmit(evt){
+  //   evt.preventDefault();
+  //   const inputValue = this._view.refs.input.value.trim();
+  //   this.request.query = inputValue;
 
-    this._model.getImages(this.request).then(data => {
-      this._view.createTemplate(data);
-      this._view.refs.form.reset();
-      this._view.refs.ShowMoreBtn.classList.add('visible');
-    });
+  //   this._model.getImages(this.request).then(data => {
+  //     this._view.createTemplate(data);
+  //     this._view.refs.form.reset();
+  //     this._view.refs.ShowMoreBtn.classList.add('visible');
+  //   });
 
-  }
+  // }
 
   onClickSearch(evt) {
       const inputValue = this._view.refs.input.value.trim();
@@ -134,7 +134,6 @@ export default class Controller {
       return;
     }
 
-      this._model.getImages(this.request).then(data => {
       this._view.clearPage();
       this._model.getImages(this.request).then(data => {
 

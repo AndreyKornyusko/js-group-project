@@ -165,6 +165,8 @@ export default class Controller {
   onClickAddToSelected() {
     const selectArrItem = this.findActiveSlide();
 
+    this._view.refs.select.classList.add('activated');
+
     this._model.addToSelected(selectArrItem);
   }
 

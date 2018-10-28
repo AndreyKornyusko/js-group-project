@@ -90,10 +90,12 @@ export default class Controller {
   onclickNext(evt) {
     this.slide();
     const activeEl = document.querySelector('.active');
+    
     if (activeEl.nextElementSibling) {
       activeEl.style.left = '-100%';
       activeEl.classList.remove('active');
       activeEl.nextElementSibling.classList.add('active');
+      this._view.refs.select.classList.remove('activated');
     }
   }
 
@@ -105,6 +107,7 @@ export default class Controller {
       activeEl.previousElementSibling.style.left = '0%';
       activeEl.classList.remove('active');
       activeEl.previousElementSibling.classList.add('active');
+      this._view.refs.select.classList.remove('activated');
     }
   }
 
@@ -132,6 +135,9 @@ export default class Controller {
     }
 
       this._model.getImages(this.request).then(data => {
+      this._view.clearPage();
+      this._model.getImages(this.request).then(data => {
+
       this._view.createTemplate(data);
       this._view.refs.form.reset();
       this._view.refs.ShowMoreBtn.classList.add('visible');
@@ -175,6 +181,8 @@ export default class Controller {
 
   onClickAddToSelected() {
     const selectArrItem = this.findActiveSlide();
+
+    this._view.refs.select.classList.add('activated');
 
     this._model.addToSelected(selectArrItem);
   }

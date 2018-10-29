@@ -14,10 +14,6 @@ export default class Controller {
       },
     };
 
-   /* this._view.refs.searchBtn.addEventListener(
-      'click',
-      this.onClickSearch.bind(this),
-    );*/
     this._view.refs.ShowMoreBtn.addEventListener(
       'click',
       this.onClickShowMore.bind(this),
@@ -48,7 +44,7 @@ export default class Controller {
     this._view.refs.form.addEventListener(
       'submit',
       this.onClickSearch.bind(this),
-  ); 
+    );
   }
 
   slide() {
@@ -90,7 +86,7 @@ export default class Controller {
   onclickNext(evt) {
     this.slide();
     const activeEl = document.querySelector('.active');
-    
+
     if (activeEl.nextElementSibling) {
       activeEl.style.left = '-100%';
       activeEl.classList.remove('active');
@@ -111,32 +107,18 @@ export default class Controller {
     }
   }
 
-  // onClickFormSubmit(evt){
-  //   evt.preventDefault();
-  //   const inputValue = this._view.refs.input.value.trim();
-  //   this.request.query = inputValue;
-
-  //   this._model.getImages(this.request).then(data => {
-  //     this._view.createTemplate(data);
-  //     this._view.refs.form.reset();
-  //     this._view.refs.ShowMoreBtn.classList.add('visible');
-  //   });
-
-  // }
-
   onClickSearch(evt) {
-      const inputValue = this._view.refs.input.value.trim();
-      evt.preventDefault();
-      this.request.query = inputValue;
+    const inputValue = this._view.refs.input.value.trim();
+    evt.preventDefault();
+    this.request.query = inputValue;
 
-      if (!this.isEnteredValueValid(inputValue)) {
+    if (!this.isEnteredValueValid(inputValue)) {
       this._view.refs.form.reset();
       return;
     }
 
-      this._view.clearPage();
-      this._model.getImages(this.request).then(data => {
-
+    this._view.clearPage();
+    this._model.getImages(this.request).then(data => {
       this._view.createTemplate(data);
       this._view.refs.form.reset();
       this._view.refs.ShowMoreBtn.classList.add('visible');
@@ -146,7 +128,7 @@ export default class Controller {
   onClickImagesInContainer({ target }) {
     const action = target.dataset.action;
 
-    console.log(target)
+    console.log(target);
 
     switch (action) {
       case 'showModal':
@@ -201,10 +183,10 @@ export default class Controller {
 
   onclickDelSlider({ target }) {
     const action = target.dataset.action;
-  if(action === "delete") {
-        this._view.deleteSlide();
+    if (action === 'delete') {
+      this._view.deleteSlide();
     }
-  } 
+  }
 
   delImageFromSelected(target) {
     const listItem = target.closest('.list__img-card');
@@ -216,7 +198,7 @@ export default class Controller {
   }
 
   isEnteredValueValid(inputValue) {
-    const value = /^[a-zA-Z0-9]/.test(inputValue);
+    const value = /^[a-zA-Z0-9 a-zA-Z0-9 a-zA-Z0-9 a-zA-Z0-9]/.test(inputValue);
 
     if (inputValue === '') {
       alert('Вы ничего не ввели');

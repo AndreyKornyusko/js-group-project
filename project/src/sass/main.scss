@@ -233,9 +233,10 @@
     z-index: 1000;
 
     &:hover .list__deleteBasket{
-      fill: #B7C06A;
+      fill: #B7C06A!important;
   }
 }
+
 
 .list__deleteBasket {
   width: 100%;
@@ -250,7 +251,4 @@
   height: 122px;
   object-fit: contain;
 }
-
-
-
 

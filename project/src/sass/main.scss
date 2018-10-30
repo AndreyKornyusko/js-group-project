@@ -37,6 +37,7 @@
 .wrapper {
   width: 100%;
   flex-direction: column;
+  padding-top: 20px;
   @extend .flex-row;
 }
 
@@ -47,15 +48,15 @@
 }
 
 .selected {
-  width: 105px;
-  max-width: 115px;
-  min-width: 105px;
-  @extend .flex-row;
-  cursor: pointer;
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: flex-end;
 }
 
 .selected,
-.list__selected-button {
+.list__selected-button,
+.selected__button {
   font-size: 16px;
   font-family: 'Roboto';
   color: rgb(103, 58, 183);
@@ -74,15 +75,31 @@
   }
 }
 
-.selected__svg-wrap {
+.selected::before {
+  content: '';
   width: 15px;
   height: 15px;
   background-image: url(../img/header-star.png);
   background-repeat: no-repeat;
   background-size: contain;
-  &:hover {
-    background-image: url(../img/header-star-hov.png);
-  }
+}
+
+.selected:hover::before {
+  background-image: url(../img/header-star-hov.png);
+}
+.selected__button {
+  width: 105px;
+  max-width: 115px;
+  min-width: 105px;
+  border: none;
+  background: transparent;
+}
+
+.logo {
+  background: url(../img/logo.png) no-repeat center;
+  width: 305px;
+  height: 85px;
+  margin: 0 auto;
 }
 
 .main {
@@ -114,13 +131,6 @@
 
 .list-wrap {
   width: 100%;
-  margin: 0 auto;
-}
-
-.logo {
-  background: url(../img/logo.png) no-repeat center;
-  width: 305px;
-  height: 85px;
   margin: 0 auto;
 }
 

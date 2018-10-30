@@ -55,10 +55,11 @@
   max-width: 115px;
   min-width: 105px;
   @extend .flex-row;
+    &:hover{
   cursor: pointer;
+   }
 }
-
-.selected, .list__selected-button{
+.selected, .list__selected-button, .selected__button{
   font-size: 16px;
   font-family: 'Roboto';
   color: rgb(103, 58, 183);
@@ -77,17 +78,23 @@
   }
 }
 
-.selected__svg-wrap {
+.selected::before {
+  content: "";
   width: 15px;
   height: 15px;
   background-image: url(../img/header-star.png);
   background-repeat: no-repeat;
   background-size: contain;
-  &:hover {
-    background-image: url(../img/header-star-hov.png);
-  }
 }
 
+.selected:hover::before{
+  background-image: url(../img/header-star-hov.png);
+}
+
+.selected__button {
+  border: none;
+  background: transparent;
+}
 .main {
   width: 100%;
   display: grid;

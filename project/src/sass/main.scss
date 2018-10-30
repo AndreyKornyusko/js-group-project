@@ -176,12 +176,13 @@
   max-width: 860px;
   width: 78%;
   list-style: none;
-  justify-self: center;
+  justify-content: center;
   margin: 0 auto;
   margin-bottom: 25px;
 
   @include respond-to(handhelds) {
     grid-template-columns: repeat(auto-fit, minmax(250px, 320px));
+    justify-content: center;
   }
 
   @include respond-to(small-screens) {
@@ -189,7 +190,7 @@
   }
 
   @include respond-to(medium-screens) {
-    width: 640px;
+    width: 540px;
   }
 
   @include respond-to(wide-screens) {
@@ -255,23 +256,6 @@
   height: 122px;
   object-fit: contain;
 }
-
-// @if $media == handhelds {
-//   @media only screen and (min-width: 320px) and (max-width: 548px) {
-//     @content;
-//   }
-// } @else if $media == small-screens {
-//   @media only screen and (min-width: 547px) and (max-width: 669px) {
-//     @content;
-//   }
-// } @else if $media == medium-screens {
-//   @media only screen and (min-width: 670px) and (max-width: 980px) {
-//     @content;
-//   }
-// } @else if $media == wide-screens {
-//   @media only screen and (min-width: 981px) and (max-width: 1250px) {
-//     @content;
-//   }
 
 .slider__list {
   display: flex;

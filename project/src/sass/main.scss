@@ -181,12 +181,11 @@
   margin-bottom: 25px;
 
   @include respond-to(handhelds) {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 320px));
+   width: 50%;
   }
-
-  @include respond-to(small-screens) {
-    width: 88%;
-  }
+   @include respond-to(small-screens) {
+   width: 78%;
+  } 
 
   @include respond-to(medium-screens) {
     width: 640px;

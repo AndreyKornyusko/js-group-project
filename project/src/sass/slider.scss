@@ -16,21 +16,40 @@
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.slider__list {
-  display: flex;
-  position: relative;
-  overflow: hidden;
-  width: 56.25rem;
-  height: 34.375rem;
-  margin: 1.25rem auto;
-  padding: 0;
-  list-style: none;
-  z-index: 1000;
-}
+// .slider__list {
+//   display: flex;
+//   position: relative;
+//   overflow: hidden;
+//   // width: 56.25rem;
+//   // height: 34.375rem;
+//   margin: 1.25rem auto;
+//   padding: 0;
+//   list-style: none;
+//   z-index: 1000;
+//   @include respond-to(handhelds) {
+//     width: 80%;
+//     height: 80%;
+//   }
+
+//   @include respond-to(small-screens) {
+//     width: 80%;
+//     height: 80%;
+//   }
+
+//   @include respond-to(medium-screens) {
+//     width: 80%;
+//     height: 80%;
+//   }
+
+//   @include respond-to(wide-screens) {
+//     width: 56.25rem;
+//     height: 34.375rem;
+//   }
+// }
+
 .slider__list-item.active {
   display: flex;
 }
-
 
 .slider__list-item {
   display: none;
@@ -126,7 +145,7 @@
   }
 }
 
-.slider__star.activated{
+.slider__star.activated {
   background-image: url(../img/slider-star-activated.png);
 }
 
@@ -138,6 +157,5 @@
   background-size: contain;
   &:hover {
     background-image: url(../img/del-hov.png);
-  
   }
 }

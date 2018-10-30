@@ -7,8 +7,6 @@
   font-family: 'Roboto', sans-serif;
 }
 
-
-
 @mixin respond-to($media) {
   @if $media == handhelds {
     @media only screen and (min-width: 320px) and (max-width: 548px) {
@@ -27,7 +25,7 @@
       @content;
     }
   }
-} 
+}
 
 .flex-row {
   display: flex;
@@ -45,9 +43,7 @@
 .header {
   width: 95%;
   min-height: 65px;
-  justify-content: flex-end;
   margin: 0 auto;
-  @extend .flex-row;
 }
 
 .selected {
@@ -58,7 +54,8 @@
   cursor: pointer;
 }
 
-.selected, .list__selected-button{
+.selected,
+.list__selected-button {
   font-size: 16px;
   font-family: 'Roboto';
   color: rgb(103, 58, 183);
@@ -73,7 +70,7 @@
   }
 
   @include respond-to(small-screens) {
-   width: 80%;
+    width: 80%;
   }
 }
 
@@ -118,13 +115,13 @@
 .list-wrap {
   width: 100%;
   margin: 0 auto;
-  
 }
 
-.main__logo {
+.logo {
   background: url(../img/logo.png) no-repeat center;
   width: 305px;
   height: 85px;
+  margin: 0 auto;
 }
 
 .main__form {
@@ -157,7 +154,6 @@
   cursor: pointer;
   &:hover {
     background: #b7c06a;
-
   }
 }
 
@@ -210,9 +206,8 @@
   cursor: pointer;
   &:hover .list__hoverCard {
     opacity: 1;
-   }
+  }
 }
-
 
 .list__hoverCard {
   width: 100%;
@@ -224,16 +219,16 @@
 }
 
 .list__delButton {
-    position: absolute;
-    display: flex;
-    width: 24px;
-    height: 24px;
-    top: 6px;
-    right: 0px;
-    z-index: 1000;
+  position: absolute;
+  display: flex;
+  width: 24px;
+  height: 24px;
+  top: 6px;
+  right: 0px;
+  z-index: 1000;
 
-    &:hover .list__deleteBasket{
-      fill: #B7C06A;
+  &:hover .list__deleteBasket {
+    fill: #b7c06a;
   }
 }
 
@@ -251,6 +246,50 @@
   object-fit: contain;
 }
 
+// @if $media == handhelds {
+//   @media only screen and (min-width: 320px) and (max-width: 548px) {
+//     @content;
+//   }
+// } @else if $media == small-screens {
+//   @media only screen and (min-width: 547px) and (max-width: 669px) {
+//     @content;
+//   }
+// } @else if $media == medium-screens {
+//   @media only screen and (min-width: 670px) and (max-width: 980px) {
+//     @content;
+//   }
+// } @else if $media == wide-screens {
+//   @media only screen and (min-width: 981px) and (max-width: 1250px) {
+//     @content;
+//   }
 
+.slider__list {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  width: 56.25rem;
+  height: 34.375rem;
+  margin: 1.25rem auto;
+  padding: 0;
+  list-style: none;
+  z-index: 1000;
+  @include respond-to(handhelds) {
+    width: 20rem;
+    height: 12rem;
+  }
 
+  @include respond-to(small-screens) {
+    width: 26rem;
+    height: 15.8rem;
+  }
 
+  @include respond-to(medium-screens) {
+    width: 35rem;
+    height: 21.3rem;
+  }
+
+  @include respond-to(wide-screens) {
+    width: 56.25rem;
+    height: 34.375rem;
+  }
+}

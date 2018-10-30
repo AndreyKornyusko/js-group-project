@@ -7,8 +7,6 @@
   font-family: 'Roboto', sans-serif;
 }
 
-
-
 @mixin respond-to($media) {
   @if $media == handhelds {
     @media only screen and (min-width: 320px) and (max-width: 548px) {
@@ -27,7 +25,7 @@
       @content;
     }
   }
-} 
+}
 
 .flex-row {
   display: flex;
@@ -39,26 +37,26 @@
 .wrapper {
   width: 100%;
   flex-direction: column;
+  padding-top: 20px;
   @extend .flex-row;
 }
 
 .header {
   width: 95%;
   min-height: 65px;
-  justify-content: flex-end;
   margin: 0 auto;
-  @extend .flex-row;
 }
 
 .selected {
-  width: 105px;
-  max-width: 115px;
-  min-width: 105px;
-  @extend .flex-row;
-  cursor: pointer;
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  justify-content: flex-end;
 }
 
-.selected, .list__selected-button{
+.selected,
+.list__selected-button,
+.selected__button {
   font-size: 16px;
   font-family: 'Roboto';
   color: rgb(103, 58, 183);
@@ -73,19 +71,35 @@
   }
 
   @include respond-to(small-screens) {
-   width: 80%;
+    width: 80%;
   }
 }
 
-.selected__svg-wrap {
+.selected::before {
+  content: '';
   width: 15px;
   height: 15px;
   background-image: url(../img/header-star.png);
   background-repeat: no-repeat;
   background-size: contain;
-  &:hover {
-    background-image: url(../img/header-star-hov.png);
-  }
+}
+
+.selected:hover::before {
+  background-image: url(../img/header-star-hov.png);
+}
+.selected__button {
+  width: 105px;
+  max-width: 115px;
+  min-width: 105px;
+  border: none;
+  background: transparent;
+}
+
+.logo {
+  background: url(../img/logo.png) no-repeat center;
+  width: 305px;
+  height: 85px;
+  margin: 0 auto;
 }
 
 .main {
@@ -118,13 +132,6 @@
 .list-wrap {
   width: 100%;
   margin: 0 auto;
-  
-}
-
-.main__logo {
-  background: url(../img/logo.png) no-repeat center;
-  width: 305px;
-  height: 85px;
 }
 
 .main__form {
@@ -157,7 +164,6 @@
   cursor: pointer;
   &:hover {
     background: #b7c06a;
-
   }
 }
 
@@ -170,20 +176,25 @@
   max-width: 860px;
   width: 78%;
   list-style: none;
-  justify-self: center;
+  justify-content: center;
   margin: 0 auto;
   margin-bottom: 25px;
 
   @include respond-to(handhelds) {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 320px));
+    // grid-template-columns: repeat(auto-fit, minmax(250px, 320px));
+    justify-content: center;
   }
 
   @include respond-to(small-screens) {
-    width: 88%;
+   width: 50%;
   }
 
+   @include respond-to(small-screens) {
+   width: 78%;
+  } 
+
   @include respond-to(medium-screens) {
-    width: 640px;
+    width: 540px;
   }
 
   @include respond-to(wide-screens) {
@@ -210,9 +221,8 @@
   cursor: pointer;
   &:hover .list__hoverCard {
     opacity: 1;
-   }
+  }
 }
-
 
 .list__hoverCard {
   width: 100%;
@@ -224,16 +234,16 @@
 }
 
 .list__delButton {
-    position: absolute;
-    display: flex;
-    width: 24px;
-    height: 24px;
-    top: 6px;
-    right: 0px;
-    z-index: 1000;
+  position: absolute;
+  display: flex;
+  width: 24px;
+  height: 24px;
+  top: 6px;
+  right: 0px;
+  z-index: 1000;
 
-    &:hover .list__deleteBasket{
-      fill: #B7C06A!important;
+  &:hover .list__deleteBasket {
+    fill: #b7c06a;
   }
 }
 
@@ -249,6 +259,37 @@
   display: block;
   width: 100%;
   height: 122px;
-  object-fit: contain;
+  object-fit: cover;
+}
+
+.slider__list {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  width: 56.25rem;
+  height: 34.375rem;
+  margin: 1.25rem auto;
+  padding: 0;
+  list-style: none;
+  z-index: 1000;
+  @include respond-to(handhelds) {
+    width: 20rem;
+    height: 12rem;
+  }
+
+  @include respond-to(small-screens) {
+    width: 26rem;
+    height: 15.8rem;
+  }
+
+  @include respond-to(medium-screens) {
+    width: 35rem;
+    height: 21.3rem;
+  }
+
+  @include respond-to(wide-screens) {
+    width: 56.25rem;
+    height: 34.375rem;
+  }
 }
 

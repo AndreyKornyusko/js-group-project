@@ -61,7 +61,7 @@ export default class Model {
 
   clearSelecteds() {
   	LOCALSTORAGE.clear();
-  	this._selecteds = [];
+  	this._selecteds = []; 
   }
 
 }

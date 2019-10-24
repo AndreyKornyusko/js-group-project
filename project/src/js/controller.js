@@ -58,7 +58,7 @@ export default class Controller {
     const slides = document.querySelectorAll('.slider__list-item');
     const listItem = target.closest('.list__img-card');
     const imgId = listItem.dataset.id;
-    listItem.scrollIntoView();
+    // listItem.scrollIntoView();
     slides.forEach((slide, i) => {
       if (imgId === slide.dataset.id) {
         slide.classList.add('active');
@@ -151,9 +151,12 @@ export default class Controller {
     });
   }
 
-  showSlider(target) {
+  showSlider(target) { 
     const nodeName = target.nodeName;
     const fullview = target.dataset.fullview;
+    console.log('target', target);
+
+    console.log('target.nodeName', target.nodeName);
 
     if (nodeName !== 'DIV') return;
 
@@ -198,7 +201,7 @@ export default class Controller {
   }
 
   isEnteredValueValid(inputValue) {
-    const value = /^[a-zA-Z0-9 a-zA-Z0-9 a-zA-Z0-9 a-zA-Z0-9]/.test(inputValue);
+    const value = /^[А-ЯЁа-яёa-zA-Z0-9]*$/.test(inputValue);
 
     if (inputValue === '') {
       alert('Вы ничего не ввели');

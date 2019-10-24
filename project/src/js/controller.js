@@ -201,7 +201,7 @@ export default class Controller {
   }
 
   isEnteredValueValid(inputValue) {
-    const value = /^[А-ЯЁа-яёa-zA-Z0-9]*$/.test(inputValue);
+    const value = /^[А-ЯЁа-яёa-zA-Z 0-9]*$/.test(inputValue);
 
     if (inputValue === '') {
       alert('Вы ничего не ввели');
